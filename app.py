@@ -4,6 +4,7 @@ from flask_jwt_extended import (
     JWTManager, create_access_token,
     jwt_required, get_jwt_identity
 )
+from flasgger import Swagger
 
 # Configurações da Aplicação
 # class Config:
@@ -31,6 +32,7 @@ app.config.from_object('config')
 
 db = SQLAlchemy(app)
 jwt = JWTManager(app)
+swagger = Swagger(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
